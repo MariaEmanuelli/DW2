@@ -1,8 +1,4 @@
-<%-- 
-    Document   : testeAutor
-    Created on : 22/05/2018, 16:34:21
-    Author     : Jaque
---%>
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -15,8 +11,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
         <meta name="author" content="">
-        <link rel="shortcut icon" type="image/png" href="fenix.png"/>
-        <title>Lista de autors</title>
+        <link rel="shortcut icon" type="image/png" href="fotos/logo.png"/>
+        <title>Lista de Generos</title>
 
         <!-- Bootstrap Core CSS -->
         <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -50,7 +46,7 @@
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    Autors Cadastrados
+                    Autores Cadastrados
                 </div>
                 <!-- /.panel-heading -->
                 <div class="panel-body">

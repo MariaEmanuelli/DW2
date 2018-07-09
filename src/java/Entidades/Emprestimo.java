@@ -20,7 +20,7 @@ import javax.persistence.TemporalType;
 
 /**
  *
- * @author alexa
+ * @author Maria Emanuelli
  */
 @Entity
 @Table(name = "emprestimo")

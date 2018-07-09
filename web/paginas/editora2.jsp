@@ -1,8 +1,3 @@
-<%-- 
-    Document   : livro2
-    Created on : 30/05/2018, 09:56:00
-    Author     : Jaque
---%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -12,8 +7,8 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <form method="post" action="${pageContext.request.contextPath}/livro">
-            <input type="text" name="nomeLivro"/>
+        <form method="post" action="${pageContext.request.contextPath}/editora">
+            <input type="text" name="nomeEditora"/>
             <input type="submit" name="ok"/>
         </form>
     </body>

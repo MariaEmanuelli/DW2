@@ -5,8 +5,8 @@
  */
 package Controles;
 
-import DAOs.DAOLivro;
-import Entidades.Livro;
+import DAOs.DAOEditora;
+import Entidades.Editora;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.NumberFormat;
@@ -22,8 +22,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Jaque
  */
-@WebServlet(name = "LivroServlet", urlPatterns = {"/livro"})
-public class LivroServlet extends HttpServlet {
+@WebServlet(name = "EditoraServlet", urlPatterns = {"/editora"})
+public class EditoraServlet extends HttpServlet {
 
     Locale ptBr = new Locale("pt", "BR");
     NumberFormat formatoDinheiro = NumberFormat.getCurrencyInstance(ptBr);
@@ -42,53 +42,43 @@ public class LivroServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
 
         try (PrintWriter out = response.getWriter()) {
-            String nomeLivro = request.getParameter("nomeLivro");
+            String nomeEditora = request.getParameter("nomeEditora");
 
             String resultado = "";
-            if (!nomeLivro.equals("")) {
-                resultado = listaLivroNome(nomeLivro);
+            if (!nomeEditora.equals("")) {
+                resultado = listaEditoraNome(nomeEditora);
             } else {
-                resultado = listaLivrosCadastrados();
+                resultado = listaEditorasCadastrados();
             }
             request.getSession().setAttribute("resultado", resultado);
-            response.sendRedirect(request.getContextPath() + "/paginas/livro.jsp");
+            response.sendRedirect(request.getContextPath() + "/paginas/editora.jsp");
         }
     }
 
-    protected String listaLivroNome(String nomeLivro) {
-        DAOLivro livro = new DAOLivro();
+    protected String listaEditoraNome(String nomeEditora) {
+        DAOEditora editora = new DAOEditora();
         String tabela = "";
-        List<Livro> lista = livro.listByNome(nomeLivro);
-        for (Livro l : lista) {
+        List<Editora> lista = editora.listByNome(nomeEditora);
+        for (Editora l : lista) {
             tabela += "<tr>"
-                    + "<td>" + l.getNomeLivro()+ "</td>"
-                    + "<td>" + l.getEdicaoLivro()+ "</td>"
-                    + "<td>" + l.getAnoPublicacaoLivro()+ "</td>"
-                    + "<td>" + l.getQntEstoqueLivro()+ "</td>"
-                    + "<td>" + l.getGeneroIdGenero().getNomeGenero() + "</td>"
-                    + "<td>" + l.getEditoraIdEditora().getNomeEditora()+ "</td>"
-                    + "<td>" + l.getAutorIdAutor().getNomeAutor()+ "</td>"
-                    + "<td>" + l.getStatusIdStatus().getNomeStatus()+ "</td>"
+                    + "<td>" + l.getNomeEditora()+ "</td>"
+                    + "<td>" + l.getEnderecoEditora()+ "</td>"
+                    + "<td>" + l.getCnpjEditora()+ "</td>"
                     + "</tr>";
         }
 
         return tabela;
     }
 
-    protected String listaLivrosCadastrados() {
-        DAOLivro livro = new DAOLivro();
+    protected String listaEditorasCadastrados() {
+        DAOEditora editora = new DAOEditora();
         String tabela = "";
-        List<Livro> lista = livro.listInOrderNome();
-        for (Livro l : lista) {
+        List<Editora> lista = editora.listInOrderNome();
+        for (Editora l : lista) {
             tabela += "<tr>"
-                    + "<td>" + l.getNomeLivro()+ "</td>"
-                    + "<td>" + l.getEdicaoLivro()+ "</td>"
-                    + "<td>" + l.getAnoPublicacaoLivro()+ "</td>"
-                    + "<td>" + l.getQntEstoqueLivro()+ "</td>"
-                    + "<td>" + l.getGeneroIdGenero().getNomeGenero() + "</td>"
-                    + "<td>" + l.getEditoraIdEditora().getNomeEditora()+ "</td>"
-                    + "<td>" + l.getAutorIdAutor().getNomeAutor()+ "</td>"
-                    + "<td>" + l.getStatusIdStatus().getNomeStatus()+ "</td>"
+                    + "<td>" + l.getNomeEditora()+ "</td>"
+                    + "<td>" + l.getEnderecoEditora()+ "</td>"
+                    + "<td>" + l.getCnpjEditora()+ "</td>"
                     + "</tr>";
         }
 

@@ -1,8 +1,4 @@
-<%-- 
-    Document   : testeLivro
-    Created on : 22/05/2018, 16:34:21
-    Author     : Jaque
---%>
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -16,7 +12,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
         <link rel="shortcut icon" type="image/png" href="fenix.png"/>
-        <title>Lista de livros</title>
+        <title>Lista de editoras</title>
 
         <!-- Bootstrap Core CSS -->
         <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -50,7 +46,7 @@
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    Livros Cadastrados
+                    Editoras Cadastrados
                 </div>
                 <!-- /.panel-heading -->
                 <div class="panel-body">
@@ -59,14 +55,9 @@
                                 <table width="100%" class="table table-striped table-bordered table-hover dataTable no-footer dtr-inline" id="dataTables-example" role="grid" aria-describedby="dataTables-example_info" style="width: 100%;">
                                     <thead>
                                         <tr role="row">
-                                            <th class="sorting_asc" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Nome do livro" style="width: 170px;">Nome</th>
-                                            <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Edição do livro" style="width: 206px;">Edição</th>
-                                            <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Ano de publicação" style="width: 189px;">Ano</th>
-                                            <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Quantidade" style="width: 147px;">Quantidade</th>
-                                            <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Genero" style="width: 147px;">Genero</th>
-                                            <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Editora" style="width: 147px;">Editora</th>
-                                            <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Autor" style="width: 147px;">Autor</th>
-                                            <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Status" style="width: 147px;">Status</th>
+                                            <th class="sorting_asc" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Nome do editora" style="width: 170px;">Nome</th>
+                                            <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Endereço" style="width: 206px;">Endereco</th>
+                                            <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="CNPJ" style="width: 206px;">cnpj</th>
                                         </tr>
                                     </thead>
                                     <tbody>

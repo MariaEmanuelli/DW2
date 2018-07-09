@@ -1,8 +1,4 @@
-<%-- 
-    Document   : autor2
-    Created on : 30/05/2018, 09:56:00
-    Author     : Jaque
---%>
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>

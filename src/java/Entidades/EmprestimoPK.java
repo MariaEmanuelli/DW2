@@ -15,7 +15,7 @@ import javax.persistence.TemporalType;
 
 /**
  *
- * @author alexa
+ * @author Maria Emanuelli
  */
 @Embeddable
 public class EmprestimoPK implements Serializable {
