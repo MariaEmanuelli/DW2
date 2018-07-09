@@ -13,14 +13,14 @@
     </head>
     <body>
         <div>
-        <img src="logo.png"/>
+        <img src="fotos/logo.png"/>
         </div>
         
         <div id="dois">
             <ul>
                 <li><a href="">Home</a><li>  
                 <li><a href="cadastro.jsp"> Cadastros</a><li>
-                <li><a href="">Gêneros </a><li>
+                <li><a href="genero2.jsp">Gêneros </a><li>
                 <li> <a href="">Editora</a><li>   
                 <li> <a href="">Autores</a><li>   
                 <li> <a href="emprestimo.jsp">Empréstimo</a><li>     

@@ -61,6 +61,7 @@ public class GeneroServlet extends HttpServlet {
         List<Genero> lista = genero.listByNome(nomeGenero);
         for (Genero l : lista) {
             tabela += "<tr>"
+                    + "<td>" + l.getIdGenero() + "</td>"
                     + "<td>" + l.getNomeGenero() + "</td>"
                     + "</tr>";
         }
@@ -74,6 +75,7 @@ public class GeneroServlet extends HttpServlet {
         List<Genero> lista = genero.listInOrderNome();
         for (Genero l : lista) {
             tabela += "<tr>"
+                    + "<td>" + l.getIdGenero() + "</td>"
                     + "<td>" + l.getNomeGenero() + "</td>"
                     + "</tr>";
         }
