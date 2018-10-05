@@ -7,9 +7,7 @@ package Entidades;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -17,7 +15,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -35,19 +32,17 @@ public class Livro implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
-    @Column(name = "id_livro")
-    private Integer idLivro;
-    @Column(name = "nome_livro")
-    private String nomeLivro;
-    @Column(name = "edicao_livro")
-    private String edicaoLivro;
-    @Column(name = "ano_publicacao_livro")
+    @Column(name = "id")
+    private Integer id;
+    @Column(name = "nome")
+    private String nome;
+    @Column(name = "edicao")
+    private String edicao;
+    @Column(name = "ano_publicacao")
     @Temporal(TemporalType.DATE)
-    private Date anoPublicacaoLivro;
-    @Column(name = "qnt_estoque_livro")
-    private Integer qntEstoqueLivro;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "livro")
-    private List<Emprestimo> emprestimoList;
+    private Date anoPublicacao;
+    @Column(name = "qnt_estoque")
+    private Integer qntEstoque;
     @JoinColumn(name = "autor_id_autor", referencedColumnName = "id_autor")
     @ManyToOne(optional = false)
     private Autor autorIdAutor;
@@ -64,56 +59,48 @@ public class Livro implements Serializable {
     public Livro() {
     }
 
-    public Livro(Integer idLivro) {
-        this.idLivro = idLivro;
+    public Livro(Integer id) {
+        this.id = id;
     }
 
-    public Integer getIdLivro() {
-        return idLivro;
+    public Integer getId() {
+        return id;
     }
 
-    public void setIdLivro(Integer idLivro) {
-        this.idLivro = idLivro;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public String getNomeLivro() {
-        return nomeLivro;
+    public String getNome() {
+        return nome;
     }
 
-    public void setNomeLivro(String nomeLivro) {
-        this.nomeLivro = nomeLivro;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
-    public String getEdicaoLivro() {
-        return edicaoLivro;
+    public String getEdicao() {
+        return edicao;
     }
 
-    public void setEdicaoLivro(String edicaoLivro) {
-        this.edicaoLivro = edicaoLivro;
+    public void setEdicao(String edicao) {
+        this.edicao = edicao;
     }
 
-    public Date getAnoPublicacaoLivro() {
-        return anoPublicacaoLivro;
+    public Date getAnoPublicacao() {
+        return anoPublicacao;
     }
 
-    public void setAnoPublicacaoLivro(Date anoPublicacaoLivro) {
-        this.anoPublicacaoLivro = anoPublicacaoLivro;
+    public void setAnoPublicacao(Date anoPublicacao) {
+        this.anoPublicacao = anoPublicacao;
     }
 
-    public Integer getQntEstoqueLivro() {
-        return qntEstoqueLivro;
+    public Integer getQntEstoque() {
+        return qntEstoque;
     }
 
-    public void setQntEstoqueLivro(Integer qntEstoqueLivro) {
-        this.qntEstoqueLivro = qntEstoqueLivro;
-    }
-
-    public List<Emprestimo> getEmprestimoList() {
-        return emprestimoList;
-    }
-
-    public void setEmprestimoList(List<Emprestimo> emprestimoList) {
-        this.emprestimoList = emprestimoList;
+    public void setQntEstoque(Integer qntEstoque) {
+        this.qntEstoque = qntEstoque;
     }
 
     public Autor getAutorIdAutor() {
@@ -151,7 +138,7 @@ public class Livro implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (idLivro != null ? idLivro.hashCode() : 0);
+        hash += (id != null ? id.hashCode() : 0);
         return hash;
     }
 
@@ -162,7 +149,7 @@ public class Livro implements Serializable {
             return false;
         }
         Livro other = (Livro) object;
-        if ((this.idLivro == null && other.idLivro != null) || (this.idLivro != null && !this.idLivro.equals(other.idLivro))) {
+        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
         return true;
@@ -170,7 +157,7 @@ public class Livro implements Serializable {
 
     @Override
     public String toString() {
-        return "Entidades.Livro[ idLivro=" + idLivro + " ]";
+        return "Entidades.Livro[ id=" + id + " ]";
     }
     
 }

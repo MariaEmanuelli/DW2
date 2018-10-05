@@ -1,6 +1,12 @@
+<%-- 
+    Document   : cadastroGenero
+    Created on : 07/12/2017, 15:57:20
+    Author     : Maria Emanuelli
+--%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html> 
+<html>
     <head>
         <title> Cadastro Genero</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/> 
@@ -93,13 +99,21 @@
         </script>
     </head>
     <body>
-        <h3> Cadastrar Genero </h3>
-        <form method="post" action="${pageContext.request.contextPath}/CadastroGeneroServlet">
-            ID do Genero              
-            <input type="text" name="idGenero"/> <br>
-            Nome do Genero
-            <input type="text" name="nomeGenero"/> <br>
-            <input type="submit" name="ok"/>
-        </form>
+        <%@include file='cabecalho.jsp' %>
+        <div id="cinco">
+            <form action="CadastroGeneroServlet.jsp" method="post" id="formforn">	
+                <fieldset>
+                    <legend> Cadastro de Genero</legend>
+                    <p>ID: <input type= "number" name="idGenero" id="idGenero"  pattern="[0-9]+$"  min="1" tittle="Preencha esse campo com um número inteiro" required x-moz-errormessage="Ops. Não esqueça de preencher este campo."/>
+                        </br> </br> Nome: <input type="text" name="nome" id="nome" required x-moz-errormessage="Ops. Não esqueça de preencher este campo."/>
+                    </p>
+                    <input type="submit" href="cadastroGenero.jsp">
+                    <input type="reset" value="Limpar">
+                </fieldset>
+
+
+            </form>
+            <%@include file='rodape.jsp' %>
+        </div>	
     </body>
-</html>
+</html>	

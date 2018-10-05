@@ -8,7 +8,8 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/> 
+        <link rel="stylesheet" type="text/css" href="CSS.css"/>
         <title></title>
     </head>
     <body>
@@ -18,13 +19,12 @@
         
         <div id="dois">
             <ul>
-                <li><a href="">Home</a><li>  
+                <li><a href="index.jsp">Home</a><li>  
                 <li><a href="cadastro.jsp"> Cadastros</a><li>
-                <li><a href="genero2.jsp">Gêneros </a><li>
-                <li> <a href="">Editora</a><li>   
-                <li> <a href="">Autores</a><li>   
-                <li> <a href="emprestimo.jsp">Empréstimo</a><li>     
-                <li> <a href="mapa.jsp">Como chegar</a><li>
+                <li><a href="genero.jsp">Gêneros </a><li>
+                <li> <a href="editora.jsp">Editora</a><li>   
+                <li> <a href="autor.jsp/autor">Autores</a><li> 
+                <li> <a href="mapa.jsp/autor">Mapa</a><li> 
 
             </ul>	
         </div>

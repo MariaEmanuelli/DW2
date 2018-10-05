@@ -45,7 +45,7 @@ public class GeneroServlet extends HttpServlet {
             String nomeGenero = request.getParameter("nomeGenero");
 
             String resultado = "";
-            if (!nomeGenero.equals("")) {
+            if (nomeGenero != null) {
                 resultado = listaGeneroNome(nomeGenero);
             } else {
                 resultado = listaGenerosCadastrados();

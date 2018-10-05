@@ -1,6 +1,19 @@
 
 
+<%@page import="Entidades.Editora"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="java.util.*,
+        DAOs.DAOEditora,
+        Entidades.Editora,
+        java.text.NumberFormat" %>
+<%
+    Locale ptBr = new Locale("pt","BR");
+    
+    DAOEditora dao = new DAOEditora();
+    List<Editora> editoras = dao.listInOrderNome();
+    
+%>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -61,7 +74,20 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        ${resultado}
+                                        <tbody>
+                                        <%
+                                            for (Editora p: editoras){
+                                        %>
+                                        <tr> 
+                                            <td><%=p.getNomeEditora() %></td>
+                                            
+                                            <td><%=p.getCnpj()%></td>
+                                            
+                                        <%
+                                            }
+                                        %> 
+                                    </tbody>
+
                                     </tbody>
                                 </table></div></div>
                         <!-- /.table-responsive -->

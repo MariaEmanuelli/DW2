@@ -12,7 +12,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
         <link rel="shortcut icon" type="image/png" href="fenix.png"/>
-        <title>Lista de autors</title>
+        <title>Lista de autores</title>
 
         <!-- Bootstrap Core CSS -->
         <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">

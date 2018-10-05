@@ -45,7 +45,7 @@ public class AutorServlet extends HttpServlet {
             String nomeAutor = request.getParameter("nomeAutor");
 
             String resultado = "";
-            if (!nomeAutor.equals("")) {
+            if (nomeAutor != null) {
                 resultado = listaAutorNome(nomeAutor);
             } else {
                 resultado = listaAutorsCadastrados();
@@ -62,7 +62,7 @@ public class AutorServlet extends HttpServlet {
         for (Autor l : lista) {
             tabela += "<tr>"
                     + "<td>" + l.getNomeAutor() + "</td>"
-                    + "<td>" + l.getDataNascimentoAutor()+ "</td>"
+                    + "<td>" + l.getDataNascimento()+ "</td>"
                     + "</tr>";
         }
         
@@ -76,7 +76,7 @@ public class AutorServlet extends HttpServlet {
         for (Autor l : lista) {
             tabela += "<tr>"
                     + "<td>" + l.getNomeAutor() + "</td>"
-                    + "<td>" + l.getDataNascimentoAutor()+ "</td>"
+                    + "<td>" + l.getDataNascimento()+ "</td>"
                     + "</tr>";
         }
 

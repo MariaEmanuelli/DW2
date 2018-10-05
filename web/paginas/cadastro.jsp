@@ -10,7 +10,7 @@
     <head>
         <title> Cadastros</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/> 
-        <link rel="stylesheet" type="text/css" href="estilo.css"/>
+        <link rel="stylesheet" type="text/css" href="CSS.css"/>
     </head>
     <body>
         <%@include file='cabecalho.jsp' %>
@@ -22,7 +22,7 @@
                     </br>
                     <li><a href="cadastroCliente.jsp">Cliente </a></li>
                     </br>
-                    <li><a href="genero3.jsp">Gêneros</a></li>
+                    <li><a href="cadastroGenero.jsp">Gêneros</a></li>
                                         </br>
 
                     <li><a href="cadastroLivro.jsp">Livros</a></li>

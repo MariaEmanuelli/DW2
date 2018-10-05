@@ -45,7 +45,7 @@ public class EditoraServlet extends HttpServlet {
             String nomeEditora = request.getParameter("nomeEditora");
 
             String resultado = "";
-            if (!nomeEditora.equals("")) {
+            if (nomeEditora != null) {
                 resultado = listaEditoraNome(nomeEditora);
             } else {
                 resultado = listaEditorasCadastrados();
@@ -62,8 +62,7 @@ public class EditoraServlet extends HttpServlet {
         for (Editora l : lista) {
             tabela += "<tr>"
                     + "<td>" + l.getNomeEditora()+ "</td>"
-                    + "<td>" + l.getEnderecoEditora()+ "</td>"
-                    + "<td>" + l.getCnpjEditora()+ "</td>"
+                    + "<td>" + l.getCnpj()+ "</td>"
                     + "</tr>";
         }
 
@@ -77,8 +76,7 @@ public class EditoraServlet extends HttpServlet {
         for (Editora l : lista) {
             tabela += "<tr>"
                     + "<td>" + l.getNomeEditora()+ "</td>"
-                    + "<td>" + l.getEnderecoEditora()+ "</td>"
-                    + "<td>" + l.getCnpjEditora()+ "</td>"
+                    + "<td>" + l.getCnpj()+ "</td>"
                     + "</tr>";
         }
 

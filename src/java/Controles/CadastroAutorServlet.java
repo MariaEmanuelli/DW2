@@ -3,11 +3,13 @@
 
 package Controles;
 
-import DAOs.DAOGenero;
-import Entidades.Genero;
+import DAOs.DAOAutor;
+import Entidades.Autor;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -20,9 +22,11 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author alexa
  */
-@WebServlet(name = "CadastroGeneroServlet", urlPatterns = {"/CadastroGeneroServlet"})
-public class CadastroGeneroServlet extends HttpServlet {
+@WebServlet(name = "CadastroAutorServlet", urlPatterns = {"/CadastroAutorServlet"})
+public class CadastroAutorServlet extends HttpServlet {
 
+    SimpleDateFormat sdfDataNascimento = new SimpleDateFormat("dd/MM/yyyy");
+    
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -32,6 +36,8 @@ public class CadastroGeneroServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -40,22 +46,26 @@ public class CadastroGeneroServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet CadastroGeneroServlet</title>");            
+            out.println("<title>Servlet CadastroAutorServlet</title>");            
             out.println("</head>");
             out.println("<body>");
             out.println("<h1> Cadastro feito " + request.getContextPath() + "</h1>");
             out.println("<a href=\"/BibliotecaMaria/paginas/index.jsp\"> Inicio</a>");
             out.println("</body>");
             out.println("</html>");
-            Integer idGenero = Integer.parseInt(request.getParameter("idGenero"));
-            String nomeGenero = request.getParameter("nomeGenero");
+            Integer idAutor = Integer.parseInt(request.getParameter("idAutor"));
+            String nomeAutor = request.getParameter("nomeAutor");
+            Date dataDeNascimento = sdfDataNascimento.parse(request.getParameter("dataDeNascimento"));
             
-            DAOGenero controle = new DAOGenero();
-            Genero genero = new Genero();
+            DAOAutor controle = new DAOAutor();
+            Autor autor = new Autor();
             
-            genero.setIdGenero(idGenero);
-            genero.setNomeGenero(nomeGenero);
-            controle.inserir(genero);
+            autor.setIdAutor(idAutor);
+            autor.setNomeAutor(nomeAutor);
+            autor.setDataNascimento(dataDeNascimento);
+            controle.inserir(autor);
+        } catch (ParseException ex) {
+            Logger.getLogger(CadastroAutorServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

@@ -37,9 +37,9 @@ public class Autor implements Serializable {
     private Integer idAutor;
     @Column(name = "nome_autor")
     private String nomeAutor;
-    @Column(name = "data_nascimento_autor")
+    @Column(name = "data_nascimento")
     @Temporal(TemporalType.DATE)
-    private Date dataNascimentoAutor;
+    private Date dataNascimento;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "autorIdAutor")
     private List<Livro> livroList;
 
@@ -66,12 +66,12 @@ public class Autor implements Serializable {
         this.nomeAutor = nomeAutor;
     }
 
-    public Date getDataNascimentoAutor() {
-        return dataNascimentoAutor;
+    public Date getDataNascimento() {
+        return dataNascimento;
     }
 
-    public void setDataNascimentoAutor(Date dataNascimentoAutor) {
-        this.dataNascimentoAutor = dataNascimentoAutor;
+    public void setDataNascimento(Date dataNascimento) {
+        this.dataNascimento = dataNascimento;
     }
 
     public List<Livro> getLivroList() {

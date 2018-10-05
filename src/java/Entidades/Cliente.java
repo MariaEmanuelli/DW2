@@ -6,15 +6,12 @@
 package Entidades;
 
 import java.io.Serializable;
-import java.util.List;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -30,108 +27,98 @@ public class Cliente implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
-    @Column(name = "id_cliente")
-    private Integer idCliente;
-    @Column(name = "nome_cliente")
-    private String nomeCliente;
-    @Column(name = "endereco_cliente")
-    private String enderecoCliente;
-    @Column(name = "cpf_cliente")
-    private String cpfCliente;
-    @Column(name = "telefone_cliente")
-    private String telefoneCliente;
-    @Column(name = "celular_cliente")
-    private String celularCliente;
-    @Column(name = "email_cliente")
-    private String emailCliente;
-    @Column(name = "senha_cliente")
-    private String senhaCliente;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "cliente")
-    private List<Emprestimo> emprestimoList;
+    @Column(name = "id")
+    private Integer id;
+    @Column(name = "nome")
+    private String nome;
+    @Column(name = "endereco")
+    private String endereco;
+    @Column(name = "cpf")
+    private String cpf;
+    @Column(name = "telefone")
+    private String telefone;
+    @Column(name = "celular")
+    private String celular;
+    @Column(name = "email")
+    private String email;
+    @Column(name = "senha")
+    private String senha;
 
     public Cliente() {
     }
 
-    public Cliente(Integer idCliente) {
-        this.idCliente = idCliente;
+    public Cliente(Integer id) {
+        this.id = id;
     }
 
-    public Integer getIdCliente() {
-        return idCliente;
+    public Integer getId() {
+        return id;
     }
 
-    public void setIdCliente(Integer idCliente) {
-        this.idCliente = idCliente;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public String getNomeCliente() {
-        return nomeCliente;
+    public String getNome() {
+        return nome;
     }
 
-    public void setNomeCliente(String nomeCliente) {
-        this.nomeCliente = nomeCliente;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
-    public String getEnderecoCliente() {
-        return enderecoCliente;
+    public String getEndereco() {
+        return endereco;
     }
 
-    public void setEnderecoCliente(String enderecoCliente) {
-        this.enderecoCliente = enderecoCliente;
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
     }
 
-    public String getCpfCliente() {
-        return cpfCliente;
+    public String getCpf() {
+        return cpf;
     }
 
-    public void setCpfCliente(String cpfCliente) {
-        this.cpfCliente = cpfCliente;
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
     }
 
-    public String getTelefoneCliente() {
-        return telefoneCliente;
+    public String getTelefone() {
+        return telefone;
     }
 
-    public void setTelefoneCliente(String telefoneCliente) {
-        this.telefoneCliente = telefoneCliente;
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
     }
 
-    public String getCelularCliente() {
-        return celularCliente;
+    public String getCelular() {
+        return celular;
     }
 
-    public void setCelularCliente(String celularCliente) {
-        this.celularCliente = celularCliente;
+    public void setCelular(String celular) {
+        this.celular = celular;
     }
 
-    public String getEmailCliente() {
-        return emailCliente;
+    public String getEmail() {
+        return email;
     }
 
-    public void setEmailCliente(String emailCliente) {
-        this.emailCliente = emailCliente;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public String getSenhaCliente() {
-        return senhaCliente;
+    public String getSenha() {
+        return senha;
     }
 
-    public void setSenhaCliente(String senhaCliente) {
-        this.senhaCliente = senhaCliente;
-    }
-
-    public List<Emprestimo> getEmprestimoList() {
-        return emprestimoList;
-    }
-
-    public void setEmprestimoList(List<Emprestimo> emprestimoList) {
-        this.emprestimoList = emprestimoList;
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
 
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (idCliente != null ? idCliente.hashCode() : 0);
+        hash += (id != null ? id.hashCode() : 0);
         return hash;
     }
 
@@ -142,7 +129,7 @@ public class Cliente implements Serializable {
             return false;
         }
         Cliente other = (Cliente) object;
-        if ((this.idCliente == null && other.idCliente != null) || (this.idCliente != null && !this.idCliente.equals(other.idCliente))) {
+        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
         return true;
@@ -150,7 +137,7 @@ public class Cliente implements Serializable {
 
     @Override
     public String toString() {
-        return "Entidades.Cliente[ idCliente=" + idCliente + " ]";
+        return "Entidades.Cliente[ id=" + id + " ]";
     }
     
 }

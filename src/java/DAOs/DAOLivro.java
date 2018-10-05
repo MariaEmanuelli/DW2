@@ -46,7 +46,7 @@ public class DAOLivro extends DAOGenerico<Livro> {
 
         List<String> ls = new ArrayList<>();
         for (int i = 0; i < lf.size(); i++) {
-            ls.add(lf.get(i).getIdLivro()+ "-" + lf.get(i).getNomeLivro());
+            ls.add(lf.get(i).getId()+ "-" + lf.get(i).getNome());
         }
         return ls;
     }

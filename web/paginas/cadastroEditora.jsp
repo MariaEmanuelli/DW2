@@ -1,9 +1,14 @@
+<%-- 
+    Document   : cadastroEditora
+    Created on : 04/10/2018, 23:01:11
+    Author     : Maria Emanuelli
+--%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <!DOCTYPE html>
 <html> 
     <head>
-        <title> Cadastro Genero</title>
+        <title> Cadastro Editora</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/> 
         <link rel="stylesheet" type="text/css" href="CSS.css"/>
         <script type="text/javascript" src="js/jquery.validate.min"></script>
@@ -94,13 +99,16 @@
         </script>
     </head>
     <body>
-        <h3> Cadastrar Genero </h3>
-        <form method="post" action="${pageContext.request.contextPath}/CadastroGeneroServlet">
-            ID do Genero              
-            <input type="text" name="idGenero"/> <br>
-            Nome do Genero
-            <input type="text" name="nomeGenero"/> <br>
+        <h3> Cadastrar Editora </h3>
+        <form method="post" action="${pageContext.request.contextPath}/CadastroEditoraServlet">
+            ID da Editora             
+            <input type="text" name="idEditora"/> <br>
+            Nome da Editora
+            <input type="text" name="nomeEditora"/> <br>
+            CNPJ 
+            <input type ="text" name="cnpj"/> <br>
             <input type="submit" name="ok"/>
         </form>
     </body>
 </html>
+
