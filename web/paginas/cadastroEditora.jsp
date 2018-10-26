@@ -107,7 +107,10 @@
             <input type="text" name="nomeEditora"/> <br>
             CNPJ 
             <input type ="text" name="cnpj"/> <br>
+            Endereco 
+            <input type ="text" name="endereco"/> <br>
             <input type="submit" name="ok"/>
+            
         </form>
     </body>
 </html>

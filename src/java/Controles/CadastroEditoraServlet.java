@@ -7,10 +7,13 @@ package Controles;
 
 import DAOs.DAOEditora;
 import Entidades.Editora;
+import static Entidades.Editora_.enderecoList;
+import Entidades.Endereco;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.ParseException;
 import java.util.Date;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -53,6 +56,7 @@ public class CadastroEditoraServlet extends HttpServlet {
             Integer idEditora = Integer.parseInt(request.getParameter("idEditora"));
             String nomeEditora = request.getParameter("nomeEditora");
             String cnpj = request.getParameter("cnpj");
+            String endereco = request.getParameter("endereco");
             
             DAOEditora controle = new DAOEditora();
             Editora editora = new Editora();
@@ -60,6 +64,7 @@ public class CadastroEditoraServlet extends HttpServlet {
             editora.setIdEditora(idEditora);
             editora.setNomeEditora(nomeEditora);
             editora.setCnpj(cnpj);
+            editora.setEnderecoList((List<Endereco>) enderecoList);
             controle.inserir(editora);
 
     }

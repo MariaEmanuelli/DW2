@@ -6,12 +6,15 @@
 package Entidades;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -43,6 +46,8 @@ public class Cliente implements Serializable {
     private String email;
     @Column(name = "senha")
     private String senha;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "clienteId")
+    private List<Emprestimo> emprestimoList;
 
     public Cliente() {
     }
@@ -113,6 +118,14 @@ public class Cliente implements Serializable {
 
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+
+    public List<Emprestimo> getEmprestimoList() {
+        return emprestimoList;
+    }
+
+    public void setEmprestimoList(List<Emprestimo> emprestimoList) {
+        this.emprestimoList = emprestimoList;
     }
 
     @Override

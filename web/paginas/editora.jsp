@@ -83,6 +83,8 @@
                                             
                                             <td><%=p.getCnpj()%></td>
                                             
+                                            <td><%=p.getEnderecoList()%></td>
+                                            
                                         <%
                                             }
                                         %> 

@@ -63,6 +63,7 @@ public class EditoraServlet extends HttpServlet {
             tabela += "<tr>"
                     + "<td>" + l.getNomeEditora()+ "</td>"
                     + "<td>" + l.getCnpj()+ "</td>"
+                    + "<td>" + l.getEnderecoList()+ "</td>"
                     + "</tr>";
         }
 
@@ -77,6 +78,7 @@ public class EditoraServlet extends HttpServlet {
             tabela += "<tr>"
                     + "<td>" + l.getNomeEditora()+ "</td>"
                     + "<td>" + l.getCnpj()+ "</td>"
+                    + "<td>" + l.getEnderecoList()+ "</td>"
                     + "</tr>";
         }
 

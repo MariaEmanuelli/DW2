@@ -7,7 +7,9 @@ package Entidades;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -15,6 +17,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -55,6 +58,8 @@ public class Livro implements Serializable {
     @JoinColumn(name = "status_id_status", referencedColumnName = "id_status")
     @ManyToOne(optional = false)
     private Status statusIdStatus;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "livro")
+    private List<ItensEmprestimo> itensEmprestimoList;
 
     public Livro() {
     }
@@ -133,6 +138,14 @@ public class Livro implements Serializable {
 
     public void setStatusIdStatus(Status statusIdStatus) {
         this.statusIdStatus = statusIdStatus;
+    }
+
+    public List<ItensEmprestimo> getItensEmprestimoList() {
+        return itensEmprestimoList;
+    }
+
+    public void setItensEmprestimoList(List<ItensEmprestimo> itensEmprestimoList) {
+        this.itensEmprestimoList = itensEmprestimoList;
     }
 
     @Override

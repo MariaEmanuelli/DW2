@@ -108,7 +108,9 @@
                         </br> </br> Nome: <input type="text" name="nome" id="nome" required x-moz-errormessage="Ops. Não esqueça de preencher este campo."/>
                     </p>
                     <input type="submit" href="cadastroGenero.jsp">
-                    <input type="reset" value="Limpar">
+                    <script>
+                    //<input type="reset" value="Limpar"> 
+                    </script> 
                 </fieldset>
 
 
