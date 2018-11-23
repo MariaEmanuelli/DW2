@@ -5,17 +5,10 @@
  */
 package Controles;
 
-import DAOs.DAOEditora;
-import Entidades.Editora;
-import static Entidades.Editora_.enderecoList;
-import Entidades.Endereco;
+import DAOs.DAOStatus;
+import Entidades.Status;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.text.ParseException;
-import java.util.Date;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -26,8 +19,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Maria Emanuelli
  */
-@WebServlet(name = "CadastroEditoraServlet", urlPatterns = {"/CadastroEditoraServlet"})
-public class CadastroEditoraServlet extends HttpServlet {
+@WebServlet(name = "CadastroStatusServlet", urlPatterns = {"/CadastroStatusServlet"})
+public class CadastroStatusServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -46,26 +39,22 @@ public class CadastroEditoraServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet CadastroEditoraServlet</title>");            
+            out.println("<title>Servlet CadastroStatusServlet</title>");            
             out.println("</head>");
             out.println("<body>");
             out.println("<h1> Cadastro feito " + request.getContextPath() + "</h1>");
             out.println("<a href=\"/BibliotecaMaria/paginas/index.jsp\"> Inicio</a>");
             out.println("</body>");
             out.println("</html>");
-            Integer idEditora = Integer.parseInt(request.getParameter("idEditora"));
-            String nomeEditora = request.getParameter("nomeEditora");
-            String cnpj = request.getParameter("cnpj");
-            String endereco = request.getParameter("endereco");
+            Integer idStatus = Integer.parseInt(request.getParameter("idStatus"));
+            String nomeStatus = request.getParameter("nomeStatus");
             
-            DAOEditora controle = new DAOEditora();
-            Editora editora = new Editora();
+            DAOStatus controle = new DAOStatus();
+            Status status = new Status();
             
-            editora.setIdEditora(idEditora);
-            editora.setNomeEditora(nomeEditora);
-            editora.setCnpj(cnpj);
-            editora.setEnderecoList((List<Endereco>) enderecoList);
-            controle.inserir(editora);
+            status.setIdStatus(idStatus);
+            status.setNomeStatus(nomeStatus);
+            controle.inserir(status);
             
             
 

@@ -11,23 +11,25 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/> 
         <link rel="stylesheet" type="text/css" href="CSS.css"/>
         <title></title>
+        
     </head>
     <body>
         <div>
         <img src="fotos/logo.png"/>
         </div>
         
-        <div id="dois">
-            <ul>
-                <li><a href="index.jsp">Home</a><li>  
-                <li><a href="cadastro.jsp"> Cadastros</a><li>
-                <li><a href="genero.jsp">Gêneros </a><li>
-                <li> <a href="editora.jsp">Editora</a><li>   
-                <li> <a href="autor.jsp/autor">Autores</a><li> 
-                <li> <a href="mapa.jsp/autor">Mapa</a><li> 
-
-            </ul>	
-        </div>
+                
+        <div> <a href="index.jsp">Home</a></div>
+        <br> </br> 
+        <div> <a href="cadastro.jsp">Cadastros</a></div>
+        <br> </br> 
+        <div> <a href="genero.jsp">Gêneros</a></div>
+        <br> </br> 
+        <div> <a href="editora.jsp">Editora</a></div>
+        <br> </br> 
+        <div> <a href="autor.jsp">Autores</a></div>
+        <br> </br> 
+        <div> <a href="mapa.jsp">Mapa</a></div>
  
         
     </body>

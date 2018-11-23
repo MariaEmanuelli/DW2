@@ -100,7 +100,7 @@
     </head>
     <body>
         <h3> Cadastrar Editora </h3>
-        <form method="post" action="${pageContext.request.contextPath}/CadastroEditoraServlet">
+        <form method="post" action="${pageContext.request.contextPath}/EditoraServlet">
             ID da Editora             
             <input type="text" name="idEditora"/> <br>
             Nome da Editora

@@ -1,16 +1,16 @@
 
 
-<%@page import="Entidades.Editora"%>
+<%@page import="Entidades.Status"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.util.*,
-        DAOs.DAOEditora,
-        Entidades.Editora,
+        DAOs.DAOStatus,
+        Entidades.Status,
         java.text.NumberFormat" %>
 <%
     Locale ptBr = new Locale("pt","BR");
     
-    DAOEditora dao = new DAOEditora();
-    List<Editora> editoras = dao.listInOrderNome();
+    DAOStatus dao = new DAOStatus();
+    List<Status> status = dao.listInOrderNome();
     
 %>
 
@@ -25,7 +25,8 @@
         <meta name="description" content="">
         <meta name="author" content="">
         <link rel="shortcut icon" type="image/png" href="fenix.png"/>
-        <title>Lista de editoras</title>
+        <title>Lista de status</title>
+       
 
         <!-- Bootstrap Core CSS -->
         <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -59,7 +60,7 @@
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    Editoras Cadastrados
+                    Status Cadastrados
                 </div>
                 <!-- /.panel-heading -->
                 <div class="panel-body">
@@ -68,7 +69,7 @@
                                 <table width="100%" class="table table-striped table-bordered table-hover dataTable no-footer dtr-inline" id="dataTables-example" role="grid" aria-describedby="dataTables-example_info" style="width: 100%;">
                                     <thead>
                                         <tr role="row">
-                                            <th class="sorting_asc" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Nome do editora" style="width: 170px;">Nome</th>
+                                            <th class="sorting_asc" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Nome do status" style="width: 170px;">Nome</th>
                                             <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Endereço" style="width: 206px;">Endereco</th>
                                             <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="CNPJ" style="width: 206px;">cnpj</th>
                                         </tr>
@@ -76,14 +77,10 @@
                                     <tbody>
                                         <tbody>
                                         <%
-                                            for (Editora p: editoras){
+                                            for (Status p: status){
                                         %>
                                         <tr> 
-                                            <td><%=p.getNomeEditora() %></td>
-                                            
-                                            <td><%=p.getCnpj()%></td>
-                                            
-                                            <td><%=p.getEnderecoList()%></td>
+                                            <td><%=p.getNomeStatus() %></td>
                                             
                                         <%
                                             }
