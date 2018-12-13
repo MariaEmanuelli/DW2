@@ -1,6 +1,5 @@
 package DAOs;
 
-import static DAOs.DAOGenerico.em;
 import Entidades.Livro;
 import java.util.ArrayList;
 import java.util.List;
@@ -46,7 +45,7 @@ public class DAOLivro extends DAOGenerico<Livro> {
 
         List<String> ls = new ArrayList<>();
         for (int i = 0; i < lf.size(); i++) {
-            ls.add(lf.get(i).getId()+ "-" + lf.get(i).getNome());
+            ls.add(lf.get(i).getIdLivro() + "-" + lf.get(i).getNomeLivro());
         }
         return ls;
     }

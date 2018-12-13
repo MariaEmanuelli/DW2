@@ -3,11 +3,13 @@
 
 package Controles;
 
-import DAOs.DAOGenero;
-import Entidades.Genero;
+import DAOs.DAOLivro;
+import Entidades.Livro;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -20,8 +22,9 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author alexa
  */
-@WebServlet(name = "CadastroGeneroServlet", urlPatterns = {"/CadastroGeneroServlet"})
-public class CadastroGeneroServlet extends HttpServlet {
+@WebServlet(name = "CadastroLivroServlet", urlPatterns = {"/CadastroLivroServlet"})
+public class CadastroLivroServlet extends HttpServlet {
+    
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -40,22 +43,29 @@ public class CadastroGeneroServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet CadastroGeneroServlet</title>");            
+            out.println("<title>Servlet CadastroLivroServlet</title>");            
             out.println("</head>");
             out.println("<body>");
             out.println("<h1> Cadastro feito " + request.getContextPath() + "</h1>");
             out.println("<a href=\"/BibliotecaMaria/paginas/index.jsp\"> Inicio</a>");
             out.println("</body>");
             out.println("</html>");
-            int idGenero = Integer.parseInt(request.getParameter("idGenero"));
-            String nomeGenero = request.getParameter("nomeGenero");
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy");
+            int idLivro = Integer.parseInt(request.getParameter("idLivro"));
+            String nomeLivro = request.getParameter("nomeLivro");
+            String edicao = request.getParameter("edicao");
             
-            DAOGenero controle = new DAOGenero();
-            Genero genero = new Genero();
+            int quantidadeEstoqueLivro = Integer.parseInt(request.getParameter("quantidade"));
             
-            genero.setIdGenero(idGenero);
-            genero.setNomeGenero(nomeGenero);
-            controle.inserir(genero);
+            DAOLivro controle = new DAOLivro();
+            Livro livro = new Livro();
+            
+            livro.setIdLivro(idLivro);
+            livro.setNomeLivro(nomeLivro);
+            livro.setEdicaoLivro(nomeLivro);
+//            livro.setAnoPublicacaoLivro(anoPublicacaoLivro);
+            livro.setQuantidadeEstoqueLivro(quantidadeEstoqueLivro);
+            controle.inserir(livro);
         }
     }
 

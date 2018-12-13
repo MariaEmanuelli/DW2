@@ -1,6 +1,5 @@
 package DAOs;
 
-import static DAOs.DAOGenerico.em;
 import Entidades.Autor;
 import java.util.ArrayList;
 import java.util.List;

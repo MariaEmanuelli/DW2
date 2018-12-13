@@ -8,7 +8,6 @@
 <!DOCTYPE html>
 <html>
     <head> <title> indice </title>
-        <link rel = "stylesheet" href = "CSS.css" type = "text/css" />
     </head>
     <body bgcolor="#D8B889" >
         <font face="arial">

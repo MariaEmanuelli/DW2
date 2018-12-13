@@ -7,9 +7,10 @@ package Entidades;
 
 import java.io.Serializable;
 import java.util.Date;
+import javax.persistence.Basic;
 import javax.persistence.Column;
-import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
@@ -29,65 +30,69 @@ import javax.persistence.TemporalType;
 public class ItensEmprestimo implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    @EmbeddedId
-    protected ItensEmprestimoPK itensEmprestimoPK;
-    @Column(name = "data_devolucao")
+    @Id
+    @Basic(optional = false)
+    @Column(name = "id_itens_emprestimo")
+    private Integer idItensEmprestimo;
+    @Basic(optional = false)
+    @Column(name = "data_devolucao_itens_emprestimo")
     @Temporal(TemporalType.DATE)
-    private Date dataDevolucao;
-    @JoinColumn(name = "emprestimo_id_emprestimo", referencedColumnName = "id_emprestimo", insertable = false, updatable = false)
+    private Date dataDevolucaoItensEmprestimo;
+    @JoinColumn(name = "emprestimo_id_emprestimo", referencedColumnName = "id_emprestimo")
     @ManyToOne(optional = false)
-    private Emprestimo emprestimo;
-    @JoinColumn(name = "livro_id", referencedColumnName = "id", insertable = false, updatable = false)
+    private Emprestimo emprestimoIdEmprestimo;
+    @JoinColumn(name = "livro_id_livro", referencedColumnName = "id_livro")
     @ManyToOne(optional = false)
-    private Livro livro;
+    private Livro livroIdLivro;
 
     public ItensEmprestimo() {
     }
 
-    public ItensEmprestimo(ItensEmprestimoPK itensEmprestimoPK) {
-        this.itensEmprestimoPK = itensEmprestimoPK;
+    public ItensEmprestimo(Integer idItensEmprestimo) {
+        this.idItensEmprestimo = idItensEmprestimo;
     }
 
-    public ItensEmprestimo(int livroId, int emprestimoIdEmprestimo) {
-        this.itensEmprestimoPK = new ItensEmprestimoPK(livroId, emprestimoIdEmprestimo);
+    public ItensEmprestimo(Integer idItensEmprestimo, Date dataDevolucaoItensEmprestimo) {
+        this.idItensEmprestimo = idItensEmprestimo;
+        this.dataDevolucaoItensEmprestimo = dataDevolucaoItensEmprestimo;
     }
 
-    public ItensEmprestimoPK getItensEmprestimoPK() {
-        return itensEmprestimoPK;
+    public Integer getIdItensEmprestimo() {
+        return idItensEmprestimo;
     }
 
-    public void setItensEmprestimoPK(ItensEmprestimoPK itensEmprestimoPK) {
-        this.itensEmprestimoPK = itensEmprestimoPK;
+    public void setIdItensEmprestimo(Integer idItensEmprestimo) {
+        this.idItensEmprestimo = idItensEmprestimo;
     }
 
-    public Date getDataDevolucao() {
-        return dataDevolucao;
+    public Date getDataDevolucaoItensEmprestimo() {
+        return dataDevolucaoItensEmprestimo;
     }
 
-    public void setDataDevolucao(Date dataDevolucao) {
-        this.dataDevolucao = dataDevolucao;
+    public void setDataDevolucaoItensEmprestimo(Date dataDevolucaoItensEmprestimo) {
+        this.dataDevolucaoItensEmprestimo = dataDevolucaoItensEmprestimo;
     }
 
-    public Emprestimo getEmprestimo() {
-        return emprestimo;
+    public Emprestimo getEmprestimoIdEmprestimo() {
+        return emprestimoIdEmprestimo;
     }
 
-    public void setEmprestimo(Emprestimo emprestimo) {
-        this.emprestimo = emprestimo;
+    public void setEmprestimoIdEmprestimo(Emprestimo emprestimoIdEmprestimo) {
+        this.emprestimoIdEmprestimo = emprestimoIdEmprestimo;
     }
 
-    public Livro getLivro() {
-        return livro;
+    public Livro getLivroIdLivro() {
+        return livroIdLivro;
     }
 
-    public void setLivro(Livro livro) {
-        this.livro = livro;
+    public void setLivroIdLivro(Livro livroIdLivro) {
+        this.livroIdLivro = livroIdLivro;
     }
 
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (itensEmprestimoPK != null ? itensEmprestimoPK.hashCode() : 0);
+        hash += (idItensEmprestimo != null ? idItensEmprestimo.hashCode() : 0);
         return hash;
     }
 
@@ -98,7 +103,7 @@ public class ItensEmprestimo implements Serializable {
             return false;
         }
         ItensEmprestimo other = (ItensEmprestimo) object;
-        if ((this.itensEmprestimoPK == null && other.itensEmprestimoPK != null) || (this.itensEmprestimoPK != null && !this.itensEmprestimoPK.equals(other.itensEmprestimoPK))) {
+        if ((this.idItensEmprestimo == null && other.idItensEmprestimo != null) || (this.idItensEmprestimo != null && !this.idItensEmprestimo.equals(other.idItensEmprestimo))) {
             return false;
         }
         return true;
@@ -106,7 +111,7 @@ public class ItensEmprestimo implements Serializable {
 
     @Override
     public String toString() {
-        return "Entidades.ItensEmprestimo[ itensEmprestimoPK=" + itensEmprestimoPK + " ]";
+        return "Entidades.ItensEmprestimo[ idItensEmprestimo=" + idItensEmprestimo + " ]";
     }
     
 }

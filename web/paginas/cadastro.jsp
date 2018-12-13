@@ -12,26 +12,27 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/> 
         <link rel="stylesheet" type="text/css" href="CSS.css"/>
     </head>
-    <body>
+    <body bgcolor="#D8B889">
         <%@include file='cabecalho.jsp' %>
         <div id="cadastros">
             <fieldset>
-                <legend> Cadastro</legend>
-                <ul>
-                    <li><a href="cadastroEditora.jsp"> Editora </a></li>
+                <legend> Cadastro </legend>
+                <dl>
+                    
+                    <dd><a href="cadastroEditora.jsp"> Editora </a></dd>
                     </br>
-                    <li><a href="cadastroCliente.jsp">Cliente </a></li>
+                    <dd><a href="cadastroCliente.jsp">Cliente </a></dd>
                     </br>
-                    <li><a href="cadastroGenero.jsp">Gêneros</a></li>
+                    <dd><a href="cadastroGenero.jsp">Gêneros</a></dd>
                                         </br>
 
-                    <li><a href="cadastroLivro.jsp">Livros</a></li>
+                    <dd><a href="cadastroLivro.jsp">Livros</a></dd>
                                         </br>
 
-                    <li><a href="cadastroAutor.jsp">Autores</a></li>
+                    <dd><a href="cadastroAutor.jsp">Autores</a></dd>
                     </br>
-                    <li><a href="">Livro</a></li>
-                </ul>
+                    <dd><a href="">Livro</a></dd>
+                </dl>
                 <%@include file='rodape.jsp' %>
         </div>    
     </body>

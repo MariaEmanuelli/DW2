@@ -31,12 +31,15 @@ public class Endereco implements Serializable {
     @Basic(optional = false)
     @Column(name = "id_endereco")
     private Integer idEndereco;
-    @Column(name = "nome")
-    private String nome;
-    @Column(name = "cep")
-    private String cep;
-    @Column(name = "numero")
-    private Integer numero;
+    @Basic(optional = false)
+    @Column(name = "nome_endereco")
+    private String nomeEndereco;
+    @Basic(optional = false)
+    @Column(name = "cep_endereco")
+    private String cepEndereco;
+    @Basic(optional = false)
+    @Column(name = "numero_endereco")
+    private int numeroEndereco;
     @JoinColumn(name = "editora_id_editora", referencedColumnName = "id_editora")
     @ManyToOne(optional = false)
     private Editora editoraIdEditora;
@@ -48,6 +51,13 @@ public class Endereco implements Serializable {
         this.idEndereco = idEndereco;
     }
 
+    public Endereco(Integer idEndereco, String nomeEndereco, String cepEndereco, int numeroEndereco) {
+        this.idEndereco = idEndereco;
+        this.nomeEndereco = nomeEndereco;
+        this.cepEndereco = cepEndereco;
+        this.numeroEndereco = numeroEndereco;
+    }
+
     public Integer getIdEndereco() {
         return idEndereco;
     }
@@ -56,28 +66,28 @@ public class Endereco implements Serializable {
         this.idEndereco = idEndereco;
     }
 
-    public String getNome() {
-        return nome;
+    public String getNomeEndereco() {
+        return nomeEndereco;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setNomeEndereco(String nomeEndereco) {
+        this.nomeEndereco = nomeEndereco;
     }
 
-    public String getCep() {
-        return cep;
+    public String getCepEndereco() {
+        return cepEndereco;
     }
 
-    public void setCep(String cep) {
-        this.cep = cep;
+    public void setCepEndereco(String cepEndereco) {
+        this.cepEndereco = cepEndereco;
     }
 
-    public Integer getNumero() {
-        return numero;
+    public int getNumeroEndereco() {
+        return numeroEndereco;
     }
 
-    public void setNumero(Integer numero) {
-        this.numero = numero;
+    public void setNumeroEndereco(int numeroEndereco) {
+        this.numeroEndereco = numeroEndereco;
     }
 
     public Editora getEditoraIdEditora() {

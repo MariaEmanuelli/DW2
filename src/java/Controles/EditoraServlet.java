@@ -62,8 +62,7 @@ public class EditoraServlet extends HttpServlet {
         for (Editora l : lista) {
             tabela += "<tr>"
                     + "<td>" + l.getNomeEditora()+ "</td>"
-                    + "<td>" + l.getCnpj()+ "</td>"
-                    + "<td>" + l.getEnderecoList()+ "</td>"
+                    + "<td>" + l.getCnpjEditora()+ "</td>"
                     + "</tr>";
         }
 
@@ -77,8 +76,7 @@ public class EditoraServlet extends HttpServlet {
         for (Editora l : lista) {
             tabela += "<tr>"
                     + "<td>" + l.getNomeEditora()+ "</td>"
-                    + "<td>" + l.getCnpj()+ "</td>"
-                    + "<td>" + l.getEnderecoList()+ "</td>"
+                    + "<td>" + l.getCnpjEditora()+ "</td>"
                     + "</tr>";
         }
 

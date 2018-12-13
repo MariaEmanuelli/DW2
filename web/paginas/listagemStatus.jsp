@@ -7,11 +7,11 @@
         Entidades.Status,
         java.text.NumberFormat" %>
 <%
-    Locale ptBr = new Locale("pt","BR");
-    
+    Locale ptBr = new Locale("pt", "BR");
+
     DAOStatus dao = new DAOStatus();
     List<Status> status = dao.listInOrderNome();
-    
+
 %>
 
 <!DOCTYPE html>
@@ -26,7 +26,7 @@
         <meta name="author" content="">
         <link rel="shortcut icon" type="image/png" href="fenix.png"/>
         <title>Lista de status</title>
-       
+
 
         <!-- Bootstrap Core CSS -->
         <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -69,23 +69,23 @@
                                 <table width="100%" class="table table-striped table-bordered table-hover dataTable no-footer dtr-inline" id="dataTables-example" role="grid" aria-describedby="dataTables-example_info" style="width: 100%;">
                                     <thead>
                                         <tr role="row">
+                                            <th class="sorting_asc" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Id" style="width: 170px;">Id</th>
                                             <th class="sorting_asc" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Nome do status" style="width: 170px;">Nome</th>
-                                            <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Endereço" style="width: 206px;">Endereco</th>
-                                            <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="CNPJ" style="width: 206px;">cnpj</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tbody>
-                                        <%
-                                            for (Status p: status){
+
+                                        <% 
+                                            for (Status p : status) {
                                         %>
                                         <tr> 
-                                            <td><%=p.getNomeStatus() %></td>
-                                            
-                                        <%
-                                            }
-                                        %> 
-                                    </tbody>
+                                            <td><%=p.getIdStatus()%></td>
+                                            <td><%=p.getNomeStatus()%></td>
+
+                                            <%
+                                                }
+                                            %> 
+
 
                                     </tbody>
                                 </table></div></div>

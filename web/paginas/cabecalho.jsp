@@ -15,7 +15,7 @@
     </head>
     <body>
         <div>
-        <img src="fotos/logo.png"/>
+        <img src="logo.png"/>
         </div>
         
                 
@@ -23,11 +23,23 @@
         <br> </br> 
         <div> <a href="cadastro.jsp">Cadastros</a></div>
         <br> </br> 
-        <div> <a href="genero.jsp">Gêneros</a></div>
+        <div> <a href="listagemGenero.jsp">Gêneros</a></div>
         <br> </br> 
-        <div> <a href="editora.jsp">Editora</a></div>
+        <div> <a href="listagemEditora.jsp">Editora</a></div>
         <br> </br> 
-        <div> <a href="autor.jsp">Autores</a></div>
+        <div> <a href="listagemLivro.jsp">Livros</a></div>
+        <br> </br> 
+        <div> <a href="listagemAutor.jsp">Autores</a></div>
+        <br> </br> 
+        <div> <a href="listagemCliente.jsp">Cliente</a></div>
+        <br> </br> 
+        <div> <a href="listagemEmprestimo.jsp">Emprestimo</a></div>
+        <br> </br> 
+        <div> <a href="listagemEndereco.jsp">Endereço</a></div>
+        <br> </br> 
+        <div> <a href="listagemItensEmprestimo.jsp">Itens Emprestimo</a></div>
+        <br> </br> 
+        <div> <a href="listagemStatus.jsp">Status</a></div>
         <br> </br> 
         <div> <a href="mapa.jsp">Mapa</a></div>
  

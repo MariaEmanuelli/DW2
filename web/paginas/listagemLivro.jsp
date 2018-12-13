@@ -1,20 +1,19 @@
 
-
-<%@page import="Entidades.Editora"%>
+<%@page import="Entidades.Livro"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="java.util.*,
-        DAOs.DAOEditora,
-        Entidades.Editora,
-        java.text.NumberFormat" %>
-<%
-    Locale ptBr = new Locale("pt", "BR");
-
-    DAOEditora dao = new DAOEditora();
-    List<Editora> editoras = dao.listInOrderNome();
-%>
-
 <!DOCTYPE html>
 <html lang="en">
+    <%@page import="java.util.*,
+            DAOs.DAOLivro,
+            Entidades.Livro,
+            java.text.NumberFormat" %>
+    <%
+        Locale ptBr = new Locale("pt", "BR");
+
+        DAOLivro dao = new DAOLivro();
+        List<Livro> livros = dao.listInOrderNome();
+
+    %>
 
     <head>
 
@@ -23,9 +22,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
         <meta name="author" content="">
-        <link rel="shortcut icon" type="image/png" href="fenix.png"/>
-        <title>Lista de editoras</title>
-
+        <link rel="shortcut icon" type="image/png" href="logo.png"/>
+        <title>Lista de Livros</title>
 
         <!-- Bootstrap Core CSS -->
         <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -59,7 +57,7 @@
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    Editoras Cadastradas
+                    Livros Cadastrados
                 </div>
                 <!-- /.panel-heading -->
                 <div class="panel-body">
@@ -68,29 +66,37 @@
                                 <table width="100%" class="table table-striped table-bordered table-hover dataTable no-footer dtr-inline" id="dataTables-example" role="grid" aria-describedby="dataTables-example_info" style="width: 100%;">
                                     <thead>
                                         <tr role="row">
-                                            <th class="sorting_asc" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Id da editora" style="width: 170px;">Id</th>
-                                            <th class="sorting_asc" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Nome da editora" style="width: 170px;">Nome</th>
-                                            <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="CNPJ" style="width: 206px;">cnpj</th>
+                                            <th class="sorting_asc" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Id" style="width: 170px;">Id</th>
+                                            <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Nome do genero" style="width: 206px;">Nome</th>
+                                            <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Edicao" style="width: 206px;">Edicao</th>
+                                            <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Ano de Publicacao" style="width: 206px;">Ano</th>
+                                            <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Quantidade em Estoque" style="width: 206px;">Quantidade</th>
+                                            <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Autor" style="width: 206px;">Autor</th>
+                                            <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Editora" style="width: 206px;">Editora</th>
+                                            <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Genero" style="width: 206px;">Genero</th>
+                                            <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Status" style="width: 206px;">Status</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-
-                                        <%
-                                            for (Editora p : editoras) {
+                                        <%    
+                                            for (Livro p : livros) {
                                         %>
                                         <tr> 
+                                            <td><%=p.getIdLivro()%></td> 
+                                            <td><%=p.getNomeLivro()%></td>
+                                            <td><%=p.getEdicaoLivro() %></td>
+                                            <td><%=p.getAnoPublicacaoLivro() %></td>
+                                            <td><%=p.getQuantidadeEstoqueLivro() %></td>
+                                            <td><%=p.getAutorIdAutor().getNomeAutor() %></td>
+                                            <td><%=p.getEditoraIdEditora().getNomeEditora() %></td>
+                                            <td><%=p.getGeneroIdGenero().getNomeGenero() %></td>
+                                            <td><%=p.getStatusIdStatus().getNomeStatus() %></td>
+                                        </tr>
 
-                                            <td><%=p.getIdEditora()%></td>
-
-                                            <td><%=p.getNomeEditora()%></td>
-
-                                            <td><%=p.getCnpjEditora()%></td>
 
                                             <%
                                                 }
                                             %> 
-
-
                                     </tbody>
                                 </table></div></div>
                         <!-- /.table-responsive -->

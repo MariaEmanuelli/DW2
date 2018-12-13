@@ -7,8 +7,6 @@ package Controles;
 
 import DAOs.DAOEditora;
 import Entidades.Editora;
-import static Entidades.Editora_.enderecoList;
-import Entidades.Endereco;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.ParseException;
@@ -55,16 +53,14 @@ public class CadastroEditoraServlet extends HttpServlet {
             out.println("</html>");
             Integer idEditora = Integer.parseInt(request.getParameter("idEditora"));
             String nomeEditora = request.getParameter("nomeEditora");
-            String cnpj = request.getParameter("cnpj");
-            String endereco = request.getParameter("endereco");
+            String cnpjEditora = request.getParameter("cnpjEditora");
             
             DAOEditora controle = new DAOEditora();
             Editora editora = new Editora();
             
             editora.setIdEditora(idEditora);
             editora.setNomeEditora(nomeEditora);
-            editora.setCnpj(cnpj);
-            editora.setEnderecoList((List<Endereco>) enderecoList);
+            editora.setCnpjEditora(cnpjEditora);
             controle.inserir(editora);
             
             

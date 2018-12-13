@@ -62,7 +62,7 @@ public class AutorServlet extends HttpServlet {
         for (Autor l : lista) {
             tabela += "<tr>"
                     + "<td>" + l.getNomeAutor() + "</td>"
-                    + "<td>" + l.getDataNascimento()+ "</td>"
+                    + "<td>" + l.getDataNascimentoAutor()+ "</td>"
                     + "</tr>";
         }
         
@@ -76,7 +76,7 @@ public class AutorServlet extends HttpServlet {
         for (Autor l : lista) {
             tabela += "<tr>"
                     + "<td>" + l.getNomeAutor() + "</td>"
-                    + "<td>" + l.getDataNascimento()+ "</td>"
+                    + "<td>" + l.getDataNascimentoAutor()+ "</td>"
                     + "</tr>";
         }
 

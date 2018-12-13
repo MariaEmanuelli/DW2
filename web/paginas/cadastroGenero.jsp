@@ -1,11 +1,18 @@
+<%@page import="Entidades.Genero"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+<%@page import="java.util.*, 
+        DAOs.DAOGenero ,
+        Entidades.Genero" %>
+<%
+    DAOGenero dao = new DAOGenero();
+    List<Genero> cat = dao.listInOrderNome();
+%>
 <!DOCTYPE html>
 <html> 
     <head>
         <title> Cadastro Genero</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/> 
-        <link rel="stylesheet" type="text/css" href="CSS.css"/>
         <script type="text/javascript" src="js/jquery.validate.min"></script>
 
         <script type="text/javascript" src="js/jquery.mask.min"></script>
@@ -49,7 +56,7 @@
 
                                         nome: "required"
 
-                                        
+
                                     },
 
                                     messages: {
@@ -58,7 +65,7 @@
 
                                         nome: "Nome não pode estar em branco"
 
-                                       
+
                                     },
 
                                     submitHandler: function (form) {
@@ -95,12 +102,21 @@
     </head>
     <body>
         <h3> Cadastrar Genero </h3>
-        <form method="post" action="${pageContext.request.contextPath}/CadastroGeneroServlet">
-            ID do Genero              
-            <input type="text" name="idGenero"/> <br>
-            Nome do Genero
-            <input type="text" name="nomeGenero"/> <br>
-            <input type="submit" name="ok"/>
-        </form>
+
+        <div id="cadastros">
+            <fieldset>
+                <legend> Cadastro Genero </legend>
+
+
+                <form method="post" action="${pageContext.request.contextPath}/CadastroGeneroServlet">
+                    ID:
+                    <input type="text" name="idGenero"> <br>
+                    Nome:
+                    <input type="text" name="nomeGenero"> <br>
+                        <input type="submit" value="Cadastrar">
+                        <input type="reset" value="limpar">
+                </form>
+                <%@include file='rodape.jsp' %>
+        </div>    
     </body>
 </html>

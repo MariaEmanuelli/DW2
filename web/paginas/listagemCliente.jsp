@@ -1,21 +1,20 @@
 
+<%@page import="Entidades.Cliente"%>
 
-<%@page import="Entidades.Editora"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="java.util.*,
-        DAOs.DAOEditora,
-        Entidades.Editora,
-        java.text.NumberFormat" %>
-<%
-    Locale ptBr = new Locale("pt", "BR");
-
-    DAOEditora dao = new DAOEditora();
-    List<Editora> editoras = dao.listInOrderNome();
-%>
-
 <!DOCTYPE html>
 <html lang="en">
+    <%@page import="java.util.*,
+            DAOs.DAOCliente,
+            Entidades.Cliente,
+            java.text.NumberFormat" %>
+    <%
+        Locale ptBr = new Locale("pt", "BR");
 
+        DAOCliente dao = new DAOCliente();
+        List<Cliente> clientes = dao.listInOrderNome();
+
+    %>
     <head>
 
         <meta charset="utf-8">
@@ -24,8 +23,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
         <link rel="shortcut icon" type="image/png" href="fenix.png"/>
-        <title>Lista de editoras</title>
-
+        <title>Lista de clientes</title>
 
         <!-- Bootstrap Core CSS -->
         <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -59,7 +57,7 @@
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    Editoras Cadastradas
+                    Clientes Cadastrados
                 </div>
                 <!-- /.panel-heading -->
                 <div class="panel-body">
@@ -68,29 +66,36 @@
                                 <table width="100%" class="table table-striped table-bordered table-hover dataTable no-footer dtr-inline" id="dataTables-example" role="grid" aria-describedby="dataTables-example_info" style="width: 100%;">
                                     <thead>
                                         <tr role="row">
-                                            <th class="sorting_asc" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Id da editora" style="width: 170px;">Id</th>
-                                            <th class="sorting_asc" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Nome da editora" style="width: 170px;">Nome</th>
-                                            <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="CNPJ" style="width: 206px;">cnpj</th>
+                                            <th class="sorting_asc" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Id do autor" style="width: 170px;">Id</th>
+                                            <th class="sorting_asc" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Nome do autor" style="width: 170px;">Nome</th>
+                                            <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Celular" style="width: 206px;">Celular</th>
+                                            <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Telefone" style="width: 206px;">Telefone</th>
+                                            <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="CPF" style="width: 206px;">CPF</th>
+                                            <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Email" style="width: 206px;">Email</th>
+                                            <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Endereco" style="width: 206px;">Endereco</th>
+                                            <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Senha" style="width: 206px;">Senha</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-
-                                        <%
-                                            for (Editora p : editoras) {
+                                        <%   
+                                            for (Cliente p : clientes) {
                                         %>
                                         <tr> 
+                                            <td><%=p.getIdCliente()%></td> 
+                                            <td><%=p.getNomeCliente()%></td>
+                                            <td><%=p.getCelularCliente()%></td>
+                                            <td><%=p.getTelefoneCliente()%></td>
+                                            <td><%=p.getCpfCliente()%></td>
+                                            <td><%=p.getEmailCliente()%></td>
+                                            <td><%=p.getEnderecoCliente()%></td>
+                                            <td><%=p.getSenhaCliente()%></td>
 
-                                            <td><%=p.getIdEditora()%></td>
-
-                                            <td><%=p.getNomeEditora()%></td>
-
-                                            <td><%=p.getCnpjEditora()%></td>
-
-                                            <%
-                                                }
-                                            %> 
+                                        </tr>
 
 
+                                        <%
+                                            }
+                                        %> 
                                     </tbody>
                                 </table></div></div>
                         <!-- /.table-responsive -->

@@ -1,9 +1,20 @@
 
+<%@page import="Entidades.Autor"%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
+<%@page import="java.util.*,
+            DAOs.DAOAutor,
+            Entidades.Autor,
+            java.text.NumberFormat" %>
+    <%
+        Locale ptBr = new Locale("pt", "BR");
 
+        DAOAutor dao = new DAOAutor();
+        List<Autor> autores = dao.listInOrderNome();
+
+    %>
     <head>
 
         <meta charset="utf-8">
@@ -55,12 +66,25 @@
                                 <table width="100%" class="table table-striped table-bordered table-hover dataTable no-footer dtr-inline" id="dataTables-example" role="grid" aria-describedby="dataTables-example_info" style="width: 100%;">
                                     <thead>
                                         <tr role="row">
+                                            <th class="sorting_asc" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Id do autor" style="width: 170px;">Id</th>
                                             <th class="sorting_asc" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Nome do autor" style="width: 170px;">Nome</th>
                                             <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Nascimento" style="width: 206px;">Nascimento</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        ${resultado}
+                                        <%    
+                                            for (Autor p : autores) {
+                                        %>
+                                        <tr> 
+                                            <td><%=p.getIdAutor()%></td> 
+                                            <td><%=p.getNomeAutor()%></td>
+                                            <td><%=p.getDataNascimentoAutor() %></td>
+                                        </tr>
+
+
+                                            <%
+                                                }
+                                            %> 
                                     </tbody>
                                 </table></div></div>
                         <!-- /.table-responsive -->

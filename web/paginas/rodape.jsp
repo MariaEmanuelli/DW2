@@ -14,8 +14,8 @@
     </head>
     <body>
         <div id="rodape">
-            <p> Telelefone: (44)3016-2601</p>
-            <p> Av. Comendador Norberto Marcondes, Campo Mourão, Paraná </p>
+            <p> Telelefone: (44)3030-3030</p>
+            <p> Av. Onde mora a criatividade, Campo Mourão </p>
             <p>  </p>
         </div>
     </body>

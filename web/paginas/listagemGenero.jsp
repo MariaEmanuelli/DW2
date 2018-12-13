@@ -1,8 +1,19 @@
 
-
+<%@page import="Entidades.Genero"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
+    <%@page import="java.util.*,
+            DAOs.DAOGenero,
+            Entidades.Genero,
+            java.text.NumberFormat" %>
+    <%
+        Locale ptBr = new Locale("pt", "BR");
+
+        DAOGenero dao = new DAOGenero();
+        List<Genero> generos = dao.listInOrderNome();
+
+    %>
 
     <head>
 
@@ -11,7 +22,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
         <meta name="author" content="">
-        <link rel="shortcut icon" type="image/png" href="fotos/logo.png"/>
+        <link rel="shortcut icon" type="image/png" href="logo.png"/>
         <title>Lista de Generos</title>
 
         <!-- Bootstrap Core CSS -->
@@ -56,12 +67,22 @@
                                     <thead>
                                         <tr role="row">
                                             <th class="sorting_asc" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Id" style="width: 170px;">Id</th>
-                                            <th class="sorting_asc" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Genero" style="width: 170px;">Nome</th>
-                                            
+                                            <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Nome do genero" style="width: 206px;">Nome</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        ${resultado}
+                                        <%    
+                                            for (Genero p : generos) {
+                                        %>
+                                        <tr> 
+                                            <td><%=p.getIdGenero()%></td> 
+                                            <td><%=p.getNomeGenero()%></td>
+                                        </tr>
+
+
+                                            <%
+                                                }
+                                            %> 
                                     </tbody>
                                 </table></div></div>
                         <!-- /.table-responsive -->

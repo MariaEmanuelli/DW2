@@ -53,19 +53,16 @@ public class CadastroAutorServlet extends HttpServlet {
             out.println("<a href=\"/BibliotecaMaria/paginas/index.jsp\"> Inicio</a>");
             out.println("</body>");
             out.println("</html>");
-            Integer idAutor = Integer.parseInt(request.getParameter("idAutor"));
+            int idAutor = Integer.parseInt(request.getParameter("idAutor"));
             String nomeAutor = request.getParameter("nomeAutor");
-            Date dataDeNascimento = sdfDataNascimento.parse(request.getParameter("dataDeNascimento"));
+            String dataNascimento = request.getParameter("dataNascimento");
             
-            DAOAutor controle = new DAOAutor();
             Autor autor = new Autor();
+            DAOAutor controle = new DAOAutor();
             
             autor.setIdAutor(idAutor);
             autor.setNomeAutor(nomeAutor);
-            autor.setDataNascimento(dataDeNascimento);
             controle.inserir(autor);
-        } catch (ParseException ex) {
-            Logger.getLogger(CadastroAutorServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

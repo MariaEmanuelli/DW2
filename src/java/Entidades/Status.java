@@ -32,6 +32,7 @@ public class Status implements Serializable {
     @Basic(optional = false)
     @Column(name = "id_status")
     private Integer idStatus;
+    @Basic(optional = false)
     @Column(name = "nome_status")
     private String nomeStatus;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "statusIdStatus")
@@ -42,6 +43,11 @@ public class Status implements Serializable {
 
     public Status(Integer idStatus) {
         this.idStatus = idStatus;
+    }
+
+    public Status(Integer idStatus, String nomeStatus) {
+        this.idStatus = idStatus;
+        this.nomeStatus = nomeStatus;
     }
 
     public Integer getIdStatus() {
