@@ -1,19 +1,19 @@
-<%@page import="DAOs.DAOAutor"%>
-<%@page import="Entidades.Autor"%>
+<%@page import="DAOs.DAOCliente"%>
+<%@page import="Entidades.Cliente"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <%@page import="java.util.*, 
-        DAOs.DAOAutor ,
-        Entidades.Autor" %>
+        DAOs.DAOCliente ,
+        Entidades.Cliente" %>
 <%
-    DAOAutor dao = new DAOAutor();
-    List<Autor> cat = dao.listInOrderNome();
+    DAOCliente dao = new DAOCliente();
+    List<Cliente> cat = dao.listInOrderNome();
     
 %>
 <!DOCTYPE html>
 <html> 
     <head>
-        <title> Cadastro Autor</title>
+        <title> Cadastro Cliente</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/> 
         <script type="text/javascript" src="js/jquery.validate.min"></script>
 
@@ -103,20 +103,30 @@
         </script>
     </head>
     <body bgcolor="#D8B889">
-        <h3> Cadastrar Autor </h3>
+        <h3> Cadastrar Cliente </h3>
 
         <div id="cadastros">
             <fieldset>
-                <legend> Cadastro Autor </legend>
+                <legend> Cadastro Cliente </legend>
 
 
-                <form method="post" action="${pageContext.request.contextPath}/CadastroAutorServlet">
+                <form method="post" action="${pageContext.request.contextPath}/CadastroClienteServlet">
                     ID:
-                    <input type="text" name="idAutor"> <br>
+                    <input type="text" name="idCliente"> <br>
                     Nome:
-                    <input type="text" name="nomeAutor"> <br>
-                    Data de Nascimento:
-                    <input type="text" name="nascimentoAutor"> <br>
+                    <input type="text" name="nomeCliente"> <br>
+                    Endereco:
+                    <input type="text" name="enderecoCliente"> <br>
+                    CPF:
+                    <input type="text" name="cpfCliente"> <br>
+                    Telefone:
+                    <input type="text" name="telefoneCliente"> <br>
+                    Celular:
+                    <input type="text" name="celularCliente"> <br>
+                    Email:
+                    <input type="text" name="emailCliente"> <br>
+                    Senha:
+                    <input type="text" name="senhaCliente"> <br>
                         <input type="submit" value="Cadastrar">
                         <input type="reset" value="limpar">
                 </form>

@@ -3,11 +3,15 @@
 
 package Controles;
 
-import DAOs.DAOStatus;
-import Entidades.Status;
+import DAOs.DAOCliente;
+import DAOs.DAOEmprestimo;
+import Entidades.Cliente;
+import Entidades.Emprestimo;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -20,9 +24,9 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author alexa
  */
-@WebServlet(name = "CadastroStatusServlet", urlPatterns = {"/CadastroStatusServlet"})
-public class CadastroStatusServlet extends HttpServlet {
-
+@WebServlet(name = "CadastroEmprestimoServlet", urlPatterns = {"/CadastroEmprestimoServlet"})
+public class CadastroEmprestimoServlet extends HttpServlet {
+    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyy");
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -40,22 +44,32 @@ public class CadastroStatusServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet CadastroStatusServlet</title>");            
+            out.println("<title>Servlet CadastroEmprestimoServlet</title>");            
             out.println("</head>");
             out.println("<body>");
             out.println("<h1> Cadastro feito " + request.getContextPath() + "</h1>");
             out.println("<a href=\"/BibliotecaMaria/index.html\"> Inicio</a>");
             out.println("</body>");
             out.println("</html>");
-            int idStatus = Integer.parseInt(request.getParameter("idStatus"));
-            String nomeStatus = request.getParameter("nomeStatus");
+            int idEmprestimo = Integer.parseInt(request.getParameter("idEmprestimo"));
+            Date dataEmprestimo = null;
+            try {
+                dataEmprestimo = sdf.parse(request.getParameter("dataEmprestimo"));
+            } catch (ParseException ex) {
+                Logger.getLogger(CadastroAutorServlet.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            int idCliente = Integer.parseInt(request.getParameter("idCliente"));
             
-            DAOStatus controle = new DAOStatus();
-            Status status = new Status();
+            DAOEmprestimo controle = new DAOEmprestimo();
+            Emprestimo emprestimo = new Emprestimo();
             
-            status.setIdStatus(idStatus);
-            status.setNomeStatus(nomeStatus);
-            controle.inserir(status);
+            DAOCliente daoCliente = new DAOCliente();
+            Cliente cliente = new Cliente();
+            
+            emprestimo.setIdEmprestimo(idEmprestimo);
+            emprestimo.setDataEmprestimo(dataEmprestimo);
+            emprestimo.setClienteIdCliente(cliente);
+            controle.inserir(emprestimo);
         }
     }
 

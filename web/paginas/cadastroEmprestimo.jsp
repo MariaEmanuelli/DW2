@@ -1,19 +1,19 @@
-<%@page import="DAOs.DAOAutor"%>
-<%@page import="Entidades.Autor"%>
+<%@page import="DAOs.DAOEmprestimo"%>
+<%@page import="Entidades.Emprestimo"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <%@page import="java.util.*, 
-        DAOs.DAOAutor ,
-        Entidades.Autor" %>
+        DAOs.DAOEmprestimo ,
+        Entidades.Emprestimo" %>
 <%
-    DAOAutor dao = new DAOAutor();
-    List<Autor> cat = dao.listInOrderNome();
+    DAOEmprestimo dao = new DAOEmprestimo();
+    List<Emprestimo> cat = dao.listInOrderNome();
     
 %>
 <!DOCTYPE html>
 <html> 
     <head>
-        <title> Cadastro Autor</title>
+        <title> Cadastro Emprestimo</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/> 
         <script type="text/javascript" src="js/jquery.validate.min"></script>
 
@@ -103,20 +103,20 @@
         </script>
     </head>
     <body bgcolor="#D8B889">
-        <h3> Cadastrar Autor </h3>
+        <h3> Cadastrar Emprestimo </h3>
 
         <div id="cadastros">
             <fieldset>
-                <legend> Cadastro Autor </legend>
+                <legend> Cadastro Emprestimo </legend>
 
 
-                <form method="post" action="${pageContext.request.contextPath}/CadastroAutorServlet">
+                <form method="post" action="${pageContext.request.contextPath}/CadastroEmprestimoServlet">
                     ID:
-                    <input type="text" name="idAutor"> <br>
-                    Nome:
-                    <input type="text" name="nomeAutor"> <br>
-                    Data de Nascimento:
-                    <input type="text" name="nascimentoAutor"> <br>
+                    <input type="text" name="idEmprestimo"> <br>
+                    Data:
+                    <input type="text" name="dataEmprestimo"> <br>
+                    Cliente:
+                    <input type="text" name="clienteEmprestimo"> <br>
                         <input type="submit" value="Cadastrar">
                         <input type="reset" value="limpar">
                 </form>

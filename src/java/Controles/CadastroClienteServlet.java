@@ -3,8 +3,8 @@
 
 package Controles;
 
-import DAOs.DAOStatus;
-import Entidades.Status;
+import DAOs.DAOCliente;
+import Entidades.Cliente;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.ParseException;
@@ -20,8 +20,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author alexa
  */
-@WebServlet(name = "CadastroStatusServlet", urlPatterns = {"/CadastroStatusServlet"})
-public class CadastroStatusServlet extends HttpServlet {
+@WebServlet(name = "CadastroClienteServlet", urlPatterns = {"/CadastroClienteServlet"})
+public class CadastroClienteServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -40,22 +40,34 @@ public class CadastroStatusServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet CadastroStatusServlet</title>");            
+            out.println("<title>Servlet CadastroClienteServlet</title>");            
             out.println("</head>");
             out.println("<body>");
             out.println("<h1> Cadastro feito " + request.getContextPath() + "</h1>");
             out.println("<a href=\"/BibliotecaMaria/index.html\"> Inicio</a>");
             out.println("</body>");
             out.println("</html>");
-            int idStatus = Integer.parseInt(request.getParameter("idStatus"));
-            String nomeStatus = request.getParameter("nomeStatus");
+            int idCliente = Integer.parseInt(request.getParameter("idCliente"));
+            String nomeCliente = request.getParameter("nomeCliente");
+            String enderecoCliente = request.getParameter("enderecoCliente");
+            String cpfCliente = request.getParameter("cpfCliente");
+            String telefoneCliente = request.getParameter("telefoneCliente");
+            String celularCliente = request.getParameter("celularCliente");
+            String emailCliente = request.getParameter("emailCliente");
+            String senhaCliente = request.getParameter("senhaCliente");
             
-            DAOStatus controle = new DAOStatus();
-            Status status = new Status();
+            DAOCliente controle = new DAOCliente();
+            Cliente cliente = new Cliente();
             
-            status.setIdStatus(idStatus);
-            status.setNomeStatus(nomeStatus);
-            controle.inserir(status);
+            cliente.setIdCliente(idCliente);
+            cliente.setNomeCliente(nomeCliente);
+            cliente.setEnderecoCliente(enderecoCliente);
+            cliente.setCpfCliente(cpfCliente);
+            cliente.setTelefoneCliente(telefoneCliente);
+            cliente.setCelularCliente(celularCliente);
+            cliente.setEmailCliente(emailCliente);
+            cliente.setSenhaCliente(senhaCliente);
+            controle.inserir(cliente);
         }
     }
 

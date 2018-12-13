@@ -1,19 +1,19 @@
-<%@page import="DAOs.DAOAutor"%>
-<%@page import="Entidades.Autor"%>
+<%@page import="DAOs.DAOItensEmprestimo"%>
+<%@page import="Entidades.ItensEmprestimo"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <%@page import="java.util.*, 
-        DAOs.DAOAutor ,
-        Entidades.Autor" %>
+        DAOs.DAOItensEmprestimo ,
+        Entidades.ItensEmprestimo" %>
 <%
-    DAOAutor dao = new DAOAutor();
-    List<Autor> cat = dao.listInOrderNome();
+    DAOItensEmprestimo dao = new DAOItensEmprestimo();
+    List<ItensEmprestimo> cat = dao.listInOrderId();
     
 %>
 <!DOCTYPE html>
 <html> 
     <head>
-        <title> Cadastro Autor</title>
+        <title> Cadastro ItensEmprestimo</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/> 
         <script type="text/javascript" src="js/jquery.validate.min"></script>
 
@@ -103,20 +103,18 @@
         </script>
     </head>
     <body bgcolor="#D8B889">
-        <h3> Cadastrar Autor </h3>
+        <h3> Cadastrar ItensEmprestimo </h3>
 
         <div id="cadastros">
             <fieldset>
-                <legend> Cadastro Autor </legend>
+                <legend> Cadastro ItensEmprestimo </legend>
 
 
-                <form method="post" action="${pageContext.request.contextPath}/CadastroAutorServlet">
+                <form method="post" action="${pageContext.request.contextPath}/CadastroItensEmprestimoServlet">
                     ID:
-                    <input type="text" name="idAutor"> <br>
+                    <input type="text" name="idItensEmprestimo"> <br>
                     Nome:
-                    <input type="text" name="nomeAutor"> <br>
-                    Data de Nascimento:
-                    <input type="text" name="nascimentoAutor"> <br>
+                    <input type="text" name="nomeItensEmprestimo"> <br>
                         <input type="submit" value="Cadastrar">
                         <input type="reset" value="limpar">
                 </form>

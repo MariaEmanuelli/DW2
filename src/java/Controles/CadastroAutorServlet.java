@@ -24,9 +24,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "CadastroAutorServlet", urlPatterns = {"/CadastroAutorServlet"})
 public class CadastroAutorServlet extends HttpServlet {
-
-    SimpleDateFormat sdfDataNascimento = new SimpleDateFormat("dd/MM/yyyy");
-    
+    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyy");
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -36,8 +34,6 @@ public class CadastroAutorServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    
-    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -50,18 +46,25 @@ public class CadastroAutorServlet extends HttpServlet {
             out.println("</head>");
             out.println("<body>");
             out.println("<h1> Cadastro feito " + request.getContextPath() + "</h1>");
-            out.println("<a href=\"/BibliotecaMaria/paginas/index.jsp\"> Inicio</a>");
+            out.println("<a href=\"/BibliotecaMaria/index.html\"> Inicio</a>");
             out.println("</body>");
             out.println("</html>");
             int idAutor = Integer.parseInt(request.getParameter("idAutor"));
             String nomeAutor = request.getParameter("nomeAutor");
-            String dataNascimento = request.getParameter("dataNascimento");
+            Date nascimentoAutor = null;
+            try {
+                nascimentoAutor = sdf.parse(request.getParameter("nascimentoAutor"));
+            } catch (ParseException ex) {
+                Logger.getLogger(CadastroAutorServlet.class.getName()).log(Level.SEVERE, null, ex);
+            }
             
-            Autor autor = new Autor();
+            
             DAOAutor controle = new DAOAutor();
+            Autor autor = new Autor();
             
             autor.setIdAutor(idAutor);
             autor.setNomeAutor(nomeAutor);
+            autor.setDataNascimentoAutor(nascimentoAutor);
             controle.inserir(autor);
         }
     }

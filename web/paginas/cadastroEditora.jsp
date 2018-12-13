@@ -1,16 +1,20 @@
-<%-- 
-    Document   : cadastroEditora
-    Created on : 04/10/2018, 23:01:11
-    Author     : Maria Emanuelli
---%>
-
+<%@page import="DAOs.DAOEditora"%>
+<%@page import="Entidades.Editora"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+<%@page import="java.util.*, 
+        DAOs.DAOEditora ,
+        Entidades.Editora" %>
+<%
+    DAOEditora dao = new DAOEditora();
+    List<Editora> cat = dao.listInOrderNome();
+    
+%>
 <!DOCTYPE html>
 <html> 
     <head>
         <title> Cadastro Editora</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/> 
-        <link rel="stylesheet" type="text/css" href="CSS.css"/>
         <script type="text/javascript" src="js/jquery.validate.min"></script>
 
         <script type="text/javascript" src="js/jquery.mask.min"></script>
@@ -54,7 +58,7 @@
 
                                         nome: "required"
 
-                                        
+
                                     },
 
                                     messages: {
@@ -63,7 +67,7 @@
 
                                         nome: "Nome não pode estar em branco"
 
-                                       
+
                                     },
 
                                     submitHandler: function (form) {
@@ -98,20 +102,24 @@
 
         </script>
     </head>
-    <body>
+    <body bgcolor="#D8B889">
         <h3> Cadastrar Editora </h3>
-        <form method="post" action="${pageContext.request.contextPath}/EditoraServlet">
-            ID da Editora             
-            <input type="text" name="idEditora"/> <br>
-            Nome da Editora
-            <input type="text" name="nomeEditora"/> <br>
-            CNPJ 
-            <input type ="text" name="cnpj"/> <br>
-            Endereco 
-            <input type ="text" name="endereco"/> <br>
-            <input type="submit" name="ok"/>
-            
-        </form>
+
+        <div id="cadastros">
+            <fieldset>
+                <legend> Cadastro Editora </legend>
+
+
+                <form method="post" action="${pageContext.request.contextPath}/CadastroEditoraServlet">
+                    ID:
+                    <input type="text" name="idEditora"> <br>
+                    Nome:
+                    <input type="text" name="nomeEditora"> <br>
+                    CNPJ:
+                    <input type="text" name="cnpjEditora"> <br>
+                        <input type="submit" value="Cadastrar">
+                        <input type="reset" value="limpar">
+                </form>
+        </div>    
     </body>
 </html>
-

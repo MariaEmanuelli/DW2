@@ -1,19 +1,19 @@
-<%@page import="DAOs.DAOAutor"%>
-<%@page import="Entidades.Autor"%>
+<%@page import="DAOs.DAOEndereco"%>
+<%@page import="Entidades.Endereco"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <%@page import="java.util.*, 
-        DAOs.DAOAutor ,
-        Entidades.Autor" %>
+        DAOs.DAOEndereco ,
+        Entidades.Endereco" %>
 <%
-    DAOAutor dao = new DAOAutor();
-    List<Autor> cat = dao.listInOrderNome();
+    DAOEndereco dao = new DAOEndereco();
+    List<Endereco> cat = dao.listInOrderNome();
     
 %>
 <!DOCTYPE html>
 <html> 
     <head>
-        <title> Cadastro Autor</title>
+        <title> Cadastro Endereco</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/> 
         <script type="text/javascript" src="js/jquery.validate.min"></script>
 
@@ -103,20 +103,24 @@
         </script>
     </head>
     <body bgcolor="#D8B889">
-        <h3> Cadastrar Autor </h3>
+        <h3> Cadastrar Endereco </h3>
 
         <div id="cadastros">
             <fieldset>
-                <legend> Cadastro Autor </legend>
+                <legend> Cadastro Endereco </legend>
 
 
-                <form method="post" action="${pageContext.request.contextPath}/CadastroAutorServlet">
+                <form method="post" action="${pageContext.request.contextPath}/CadastroEnderecoServlet">
                     ID:
-                    <input type="text" name="idAutor"> <br>
+                    <input type="text" name="idEndereco"> <br>
                     Nome:
-                    <input type="text" name="nomeAutor"> <br>
-                    Data de Nascimento:
-                    <input type="text" name="nascimentoAutor"> <br>
+                    <input type="text" name="nomeEndereco"> <br>
+                    CEP:
+                    <input type="text" name="cepEndereco"> <br>
+                    Número:
+                    <input type="text" name="numeroEndereco"> <br>
+                    Editora:
+                    <input type="text" name="editoraIdEditora"> <br>
                         <input type="submit" value="Cadastrar">
                         <input type="reset" value="limpar">
                 </form>

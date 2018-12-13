@@ -24,13 +24,17 @@
                     </br>
                     <dd><a href="cadastroGenero.jsp">Gêneros</a></dd>
                                         </br>
-
                     <dd><a href="cadastroLivro.jsp">Livros</a></dd>
                                         </br>
-
                     <dd><a href="cadastroAutor.jsp">Autores</a></dd>
                     </br>
-                    <dd><a href="">Livro</a></dd>
+                    <dd><a href="cadastroEmprestimoLivro.jsp">Emprestimo</a></dd>
+                    </br>
+                    <dd><a href="cadastroEndereco.jsp">Endereco Editora</a></dd>
+                    </br>
+                    <dd><a href="cadastroItensEmpresitmo.jsp">Itens Emprestimo</a></dd>
+                    </br>
+                    <dd><a href="cadastroStatus.jsp">Status</a></dd>
                 </dl>
         </div>    
     </body>

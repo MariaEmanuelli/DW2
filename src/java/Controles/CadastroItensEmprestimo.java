@@ -3,8 +3,8 @@
 
 package Controles;
 
-import DAOs.DAOStatus;
-import Entidades.Status;
+import DAOs.DAOGenero;
+import Entidades.Genero;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.ParseException;
@@ -20,8 +20,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author alexa
  */
-@WebServlet(name = "CadastroStatusServlet", urlPatterns = {"/CadastroStatusServlet"})
-public class CadastroStatusServlet extends HttpServlet {
+@WebServlet(name = "CadastroGeneroServlet", urlPatterns = {"/CadastroGeneroServlet"})
+public class CadastroItensEmprestimo extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -40,22 +40,22 @@ public class CadastroStatusServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet CadastroStatusServlet</title>");            
+            out.println("<title>Servlet CadastroGeneroServlet</title>");            
             out.println("</head>");
             out.println("<body>");
             out.println("<h1> Cadastro feito " + request.getContextPath() + "</h1>");
             out.println("<a href=\"/BibliotecaMaria/index.html\"> Inicio</a>");
             out.println("</body>");
             out.println("</html>");
-            int idStatus = Integer.parseInt(request.getParameter("idStatus"));
-            String nomeStatus = request.getParameter("nomeStatus");
+            int idGenero = Integer.parseInt(request.getParameter("idGenero"));
+            String nomeGenero = request.getParameter("nomeGenero");
             
-            DAOStatus controle = new DAOStatus();
-            Status status = new Status();
+            DAOGenero controle = new DAOGenero();
+            Genero genero = new Genero();
             
-            status.setIdStatus(idStatus);
-            status.setNomeStatus(nomeStatus);
-            controle.inserir(status);
+            genero.setIdGenero(idGenero);
+            genero.setNomeGenero(nomeGenero);
+            controle.inserir(genero);
         }
     }
 
