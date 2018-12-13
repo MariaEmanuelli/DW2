@@ -54,8 +54,14 @@ public class CadastroLivroServlet extends HttpServlet {
             int idLivro = Integer.parseInt(request.getParameter("idLivro"));
             String nomeLivro = request.getParameter("nomeLivro");
             String edicao = request.getParameter("edicao");
-            
             int quantidadeEstoqueLivro = Integer.parseInt(request.getParameter("quantidade"));
+            Date anoPublicacao = null;
+                try {
+                    anoPublicacao = sdf.parse(request.getParameter("anoPublicacao"));
+                } catch (ParseException ex) {
+                    Logger.getLogger(CadastroLivroServlet.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
             
             DAOLivro controle = new DAOLivro();
             Livro livro = new Livro();
@@ -65,6 +71,8 @@ public class CadastroLivroServlet extends HttpServlet {
             livro.setEdicaoLivro(nomeLivro);
 //            livro.setAnoPublicacaoLivro(anoPublicacaoLivro);
             livro.setQuantidadeEstoqueLivro(quantidadeEstoqueLivro);
+            livro.setAnoPublicacaoLivro(anoPublicacao);
+            livro.setAnoPublicacaoLivro(anoPublicacao);
             controle.inserir(livro);
         }
     }

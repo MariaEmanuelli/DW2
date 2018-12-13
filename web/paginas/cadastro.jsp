@@ -13,7 +13,6 @@
         <link rel="stylesheet" type="text/css" href="CSS.css"/>
     </head>
     <body bgcolor="#D8B889">
-        <%@include file='cabecalho.jsp' %>
         <div id="cadastros">
             <fieldset>
                 <legend> Cadastro </legend>
@@ -33,7 +32,6 @@
                     </br>
                     <dd><a href="">Livro</a></dd>
                 </dl>
-                <%@include file='rodape.jsp' %>
         </div>    
     </body>
 </html>

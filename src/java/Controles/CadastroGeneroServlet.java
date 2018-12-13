@@ -44,7 +44,7 @@ public class CadastroGeneroServlet extends HttpServlet {
             out.println("</head>");
             out.println("<body>");
             out.println("<h1> Cadastro feito " + request.getContextPath() + "</h1>");
-            out.println("<a href=\"/BibliotecaMaria/paginas/index.jsp\"> Inicio</a>");
+            out.println("<a href=\"/BibliotecaMaria/index.html\"> Inicio</a>");
             out.println("</body>");
             out.println("</html>");
             int idGenero = Integer.parseInt(request.getParameter("idGenero"));

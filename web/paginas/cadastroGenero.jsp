@@ -7,6 +7,7 @@
 <%
     DAOGenero dao = new DAOGenero();
     List<Genero> cat = dao.listInOrderNome();
+    
 %>
 <!DOCTYPE html>
 <html> 
@@ -100,7 +101,7 @@
 
         </script>
     </head>
-    <body>
+    <body bgcolor="#D8B889">
         <h3> Cadastrar Genero </h3>
 
         <div id="cadastros">
@@ -116,7 +117,6 @@
                         <input type="submit" value="Cadastrar">
                         <input type="reset" value="limpar">
                 </form>
-                <%@include file='rodape.jsp' %>
         </div>    
     </body>
 </html>

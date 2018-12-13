@@ -4,7 +4,7 @@
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
  */
 body {
-  background-color: pink;
+  background-color: #D8B889;
 }
 #wrapper {
   width: 100%;
@@ -12,7 +12,7 @@ body {
 #page-wrapper {
   padding: 0 15px;
   min-height: 568px;
-  background-color: pink;
+  background-color: #D8B889;
 }
 @media (min-width: 768px) {
   #page-wrapper {
@@ -78,7 +78,7 @@ body {
   border-bottom: 1px solid #e7e7e7;
 }
 .sidebar ul li a.active {
-  background-color: pink;
+  background-color: #D8B889;
 }
 .sidebar .arrow {
   float: right;
